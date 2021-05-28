@@ -1,5 +1,6 @@
 package com.lampiris.service.impl;
 
+import com.lampiris.dto.BookFamilyDTO;
 import com.lampiris.entity.BookFamily;
 import com.lampiris.repository.BookFamilyRepository;
 import com.lampiris.service.BookFamilyService;
@@ -15,9 +16,19 @@ public class BookFamilyServiceImpl implements BookFamilyService {
     private BookFamilyRepository bookFamilyRepository;
 
     @Override
-    public List<BookFamily> getAllBookFamilies() {
+    public List<BookFamily> getAll() {
         List<BookFamily> bookFamilies = bookFamilyRepository.findAll();
         return bookFamilies;
     }
+
+    @Override
+    public BookFamily save(BookFamily bookFamily) {
+        return bookFamilyRepository.save(bookFamily);
+    }
+
+    public BookFamily fromDTO(BookFamilyDTO dto) {
+        return BookFamily.builder().id(dto.getId()).name(dto.getName()).build();
+    }
+
 
 }
