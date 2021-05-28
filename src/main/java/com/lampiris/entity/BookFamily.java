@@ -1,12 +1,13 @@
 package com.lampiris.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="BOOK_FAMILY")
+@Table(name="book_family")
 @Data
 @Builder
 @NoArgsConstructor
@@ -20,6 +21,7 @@ public class BookFamily {
     @Column(name="name")
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "bookFamily", fetch = FetchType.EAGER)
     private List<Book> books;
 
