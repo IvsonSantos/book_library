@@ -48,4 +48,10 @@ public class BookController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/report")
+    public ResponseEntity<Void> report() {
+        service.generateExcel();
+        return ResponseEntity.noContent().build();
+    }
+
 }

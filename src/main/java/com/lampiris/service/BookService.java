@@ -11,5 +11,6 @@ public interface BookService {
     Book save(Book bookFamily);
     Book fromDTO(BookDTO dto);
     Book update(Book bookFamily);
+    void generateExcel();
 
 }
