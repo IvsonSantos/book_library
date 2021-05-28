@@ -46,7 +46,7 @@ public class BookFamilyController {
     public ResponseEntity<Void> update(@Valid @RequestBody BookFamilyDTO dto, @PathVariable Integer id) {
         BookFamily bookFamily = service.fromDTO(dto);
         bookFamily.setId(id);
-        bookFamily = service.update(bookFamily);
+        service.update(bookFamily);
         return ResponseEntity.noContent().build();
     }
 

@@ -32,8 +32,8 @@ public class BookFamilyServiceImpl implements BookFamilyService {
     }
 
     public BookFamily find(Integer id) {
-        Optional<BookFamily> categoria = repository.findById(id);
-        return categoria.orElseThrow(() ->
+        Optional<BookFamily> bookFamily = repository.findById(id);
+        return bookFamily.orElseThrow(() ->
                 new RuntimeException("Object not found: " + BookFamily.class.getName()));
     }
 
