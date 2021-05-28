@@ -7,12 +7,9 @@ import com.lampiris.repository.BookFamilyRepository;
 import com.lampiris.repository.BookRepository;
 import com.lampiris.service.BookService;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.xmlbeans.impl.soap.Detail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,7 +65,7 @@ public class BookServiceImpl implements BookService {
         String jdbcURL = "jdbc:h2:mem:testdb";
         String username = "sa";
         String password = "";
-        String excelFilePath = "data.xlsx";
+        String excelFilePath = "books.xlsx";
 
         try (Connection connection = DriverManager.getConnection(jdbcURL, username, password)) {
             String sql = "SELECT * FROM book";
