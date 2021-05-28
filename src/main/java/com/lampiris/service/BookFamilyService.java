@@ -9,7 +9,6 @@ public interface BookFamilyService {
 
     List<BookFamily> getAll();
     BookFamily save(BookFamily bookFamily);
-    //BookFamily update();
     BookFamily fromDTO(BookFamilyDTO dto);
-
+    BookFamily update(BookFamily bookFamily);
 }

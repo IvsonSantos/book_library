@@ -18,11 +18,11 @@ import java.util.stream.Collectors;
 public class BookFamilyController {
 
     @Autowired
-    private BookFamilyService bookFamilyService;
+    private BookFamilyService service;
 
     @GetMapping
     public ResponseEntity<List<BookFamilyDTO>> getAll() {
-        List<BookFamily> list = bookFamilyService.getAll();
+        List<BookFamily> list = service.getAll();
         List<BookFamilyDTO> listDTO = list.stream().map(
             bookFamily -> new BookFamilyDTO(bookFamily)).collect(Collectors.toList()
         );
@@ -32,15 +32,22 @@ public class BookFamilyController {
     @PostMapping
     public ResponseEntity<Void> insert(@Valid @RequestBody BookFamilyDTO dto) {
 
-        BookFamily bookFamily = bookFamilyService.fromDTO(dto);
-        bookFamily = bookFamilyService.save(bookFamily);
+        BookFamily bookFamily = service.fromDTO(dto);
+        bookFamily = service.save(bookFamily);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
-                .buildAndExpand(bookFamily.getId())	// o codigo dacima
-                .toUri();	// converte para URI
+                .buildAndExpand(bookFamily.getId())
+                .toUri();
 
         return ResponseEntity.created(uri).build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@Valid @RequestBody BookFamilyDTO dto, @PathVariable Integer id) {
+        BookFamily bookFamily = service.fromDTO(dto);
+        bookFamily.setId(id);
+        bookFamily = service.update(bookFamily);
+        return ResponseEntity.noContent().build();
+    }
 
 }
