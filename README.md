@@ -39,4 +39,27 @@ The project has 3 main controllers:
   {
     "name": "test update"
   }
+- **/api/bookFamilies - **POST** to insert a new data on the book family with the JSON example:
+  {
+    "name": "test insert"
+  }
   
+- **/api/books- **GET** all books
+- **/api/books/{id} - **PUT** to update the data of the book with the JSON example:
+  {
+        "title": "Bryans Life",
+        "author": "Louisa Kay",
+        "family": "Fantasy"
+  }
+- **/api/books - **POST** to insert a new data on the book with the JSON example:
+  {
+        "title": "Bryans Life",
+        "author": "Louisa Kay",
+        "family": "Fantasy"
+  }
+  
+- **/api/books/report - **GET** to generate a report for the books
+- **/api/bookFamilies/report - **GET** to generate a report for the book families
+
+- **/api/ftp/{fileName} - **POSt** to export the report fileName informed to the FTP configured on the application.properties file
+
