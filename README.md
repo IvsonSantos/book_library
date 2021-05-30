@@ -32,10 +32,10 @@ The project has 3 main controllers:
 - The FtpController that manages the upload of the geports generated
 
 
-# **Endpoints on POSTMAN **
+# **Endpoints on POSTMAN**
 
--- **/api/bookFamilies - **GET** all book families
--- **/api/bookFamilies/{id} - **PUT** to update the data of the book family with the JSON example:
+- **/api/bookFamilies - **GET** all book families
+- **/api/bookFamilies/{id} - **PUT** to update the data of the book family with the JSON example:
   {
     "name": "test update"
   }
